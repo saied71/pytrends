@@ -81,7 +81,7 @@ class TrendReq(object):
             if "proxies" in self.requests_args:
                 try:
                     if self.impersonate:
-                        return dict(filter(lambda i: i[0] == 'NID', curl_requests.get(
+                        return dict(filter(lambda i: i[0] == 'NID', curl_requests.post(
                             f'{BASE_TRENDS_URL}/?geo={self.hl[-2:]}',
                             timeout=self.timeout,
                             impersonate=self.impersonate,
