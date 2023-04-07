@@ -82,14 +82,14 @@ class TrendReq(object):
                 try:
                     if self.impersonate:
                         return dict(filter(lambda i: i[0] == 'NID', curl_requests.post(
-                            f'{BASE_TRENDS_URL}/?geo={self.hl[-2:]}',
+                            f'{BASE_TRENDS_URL}explore/?geo={self.hl[-2:]}',
                             timeout=self.timeout,
                             impersonate=self.impersonate,
                             **self.requests_args
                         ).cookies.items()))
                     else:
                         return dict(filter(lambda i: i[0] == 'NID', requests.get(
-                            f'{BASE_TRENDS_URL}/?geo={self.hl[-2:]}',
+                            f'{BASE_TRENDS_URL}explore/?geo={self.hl[-2:]}',
                             timeout=self.timeout,
                             **self.requests_args
                         ).cookies.items()))
@@ -103,7 +103,7 @@ class TrendReq(object):
                 try:
                     if self.impersonate:
                         return dict(filter(lambda i: i[0] == 'NID', curl_requests.get(
-                            f'{BASE_TRENDS_URL}/?geo={self.hl[-2:]}',
+                            f'{BASE_TRENDS_URL}explore/?geo={self.hl[-2:]}',
                             timeout=self.timeout,
                             proxies=proxy,
                             impersonate=self.impersonate,
@@ -111,7 +111,7 @@ class TrendReq(object):
                         ).cookies.items()))
                     else:
                         return dict(filter(lambda i: i[0] == 'NID', requests.get(
-                            f'{BASE_TRENDS_URL}/?geo={self.hl[-2:]}',
+                            f'{BASE_TRENDS_URL}explore/?geo={self.hl[-2:]}',
                             timeout=self.timeout,
                             proxies=proxy,
                             **self.requests_args
